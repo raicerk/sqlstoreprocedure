@@ -1,14 +1,16 @@
-var sqlsp = require('../lib/index');
+var sqlsp = require('../lib/index')
 
-var sp = new sqlsp('sa','192.168.0.60','Intranet','');
+let sp = new sqlsp('userdb', '192.168.0.100', 'databasename', 'password');
 
-sp.connect();
-var datos = {};
-datos["variable1"] = "dato";
-datos["variable2"] = 2;
+var datos = {
+    "Parametro" : "Valor",
+    "Parametro2" : 2,
+    "Parametro3" : true
+};
 
-sp.exec('procedimientoalmacenado',datos).then(resultado=>{
+sp.exec('ProcedimientoAlmacenado',datos).then(resultado=>{
     console.log(resultado);
+    console.log("--------------------------------------------------------------")
 }).catch(error=>{
-    console.log("error en la ejecucion del sp");
+    console.log(`error en la ejecución del sp: ${error}`);
 })
