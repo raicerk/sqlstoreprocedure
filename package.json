@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/raicerk/sqlstoreprocedure/issues"
   },
-  "homepage": "https://github.com/raicerk/sqlstoreprocedure#readme"
+  "homepage": "https://github.com/raicerk/sqlstoreprocedure#readme",
+  "dependencies": {
+    "mssql": "^4.1.0"
+  }
 }
