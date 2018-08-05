@@ -1,6 +1,6 @@
 {
   "name": "sqlstoreprocedure",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Libreria para nodejs que permite ejecutar procedimientos almacenados de SQL Server",
   "main": "./lib/index",
   "scripts": {
