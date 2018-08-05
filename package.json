@@ -4,7 +4,7 @@
   "description": "Libreria para nodejs que permite ejecutar procedimientos almacenados de SQL Server",
   "main": "index.js",
   "scripts": {
-    "test": "test index.js"
+    "test": "node /test/index.js"
   },
   "repository": {
     "type": "git",
