@@ -1,6 +1,6 @@
 {
   "name": "sqlstoreprocedure",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Libreria para nodejs que permite ejecutar procedimientos almacenados de SQL Server",
   "main": "./lib/index",
   "scripts": {
@@ -15,7 +15,7 @@
     "sqlserver",
     "storeprocedure"
   ],
-  "author": "Juan Mora",
+  "author": "Juan Mora, Agustin Gonzalez",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/raicerk/sqlstoreprocedure/issues"
