@@ -24,8 +24,6 @@ yarn add sqlstoreprocedure
 
 ## Parameters
 
-Para enviar parámetros de entrada al procedimiento almacenado se debe crear un objeto js que se enviara como parámetro a la función de ejecución.
-
 The library allows for native JS object **primitives**
 ```js
 const parameters = {
@@ -51,7 +49,7 @@ sp.exec('StoredProcedureName', parameters).then((response) => {
 })
 ```
 
-> Veamos un ejemplo completo del código para la ejecución con await:
+> Example with await
 
 ```js
 const sqlsp = require('sqlstoreprocedure')
