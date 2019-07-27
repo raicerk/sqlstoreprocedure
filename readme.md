@@ -1,96 +1,68 @@
 # SQLStoreProcedure
 
-Librería para proyectos de `nodejs` que permite la ejecución de procedimientos almacenados de `SQL Server` de manera rápida y sencilla.
+Quick and easy MSSQL Stored Procedure execution using promises
 
-La ejecución de los procedimientos almacenadas genera como resultado una promesa con el resultado de la `query`, por lo que puede ser consumido con promesas o usando await según lo necesite el usuario.
-
-Para revisar documentación al respecto de `promises` y `await` pueden revisar los siguientes sitios:
+If you don't know how to operate with promises please refer to the following links:
 
 - [Promises](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Promise)
 
 - [Await](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Operadores/await)
 
-# Instalación
+# Install
 
-`npm install sqlstoreprocedure --save`
+```bash
+npm install sqlstoreprocedure --save
+```
 
-# Uso
+or
 
-## Parámetros de procedimientos almacenados
+```bash
+yarn add sqlstoreprocedure
+```
+
+# Usage
+
+## Parameters
 
 Para enviar parámetros de entrada al procedimiento almacenado se debe crear un objeto js que se enviara como parámetro a la función de ejecución.
+
+The library allows for native JS object **primitives**
 ```js
-// Parámetros multiformatos
-var datos = {
-    "Parametro" : "Valor",
-    "Parametro2" : 2,
-    "Parametro3" : true
+const parameters = {
+    Param1 : "value",
+    Param2 : 2,
+    Param3 : true
 };
 ```
 
-## Método de ejecución
+## Execution
 
-Para ejecutar el o los procedimientos almacenados se debe instanciar la librería, donde en su instancia se deben entregar como parámetros los valores de conexión de la base de datos de SQL Server.
-
-```js
-// Importando la librería
-var sqlsp = require('sqlstoreprocedure')
-
-// Instanciando la librería con los datos de SQL Server
-let sp = new sqlsp('userdb', 'IPServerSQLServer(xxx.xxx.xxx.xxx)', 'databasename', 'password');
-```
-
-
-Por último debemos ejecutar el procedimiento almacenado de la siguiente manera:
+In order to start oeprating we must first initialize the module:
 
 ```js
-// Ejecución del procedimiento almacenado usando promesas
-sp.exec('ProcedimientoAlmacenado',datos).then(resultado=>{
-    console.log(resultado);
-    console.log("--------------------------------------------------------------")
-}).catch(error=>{
-    console.log(`error en la ejecución del sp: ${error}`);
-})
-```
-> Veamos un ejemplo completo del código para la ejecución con promesas:
+const sqlsp = require('sqlstoreprocedure')
+const sp = new sqlsp('user', 'xxxx.xxxx.xxxx.xxxx', 'databasename', 'password');
 
-```js
-var sqlsp = require('sqlstoreprocedure')
-
-let sp = new sqlsp('sa', '192.168.0.100', 'mibasededatos', 'mipassword');
-
-var datos = {
-    "Parametro" : "Valor",
-    "Parametro2" : 2,
-    "Parametro3" : true
-};
-
-sp.exec('ProcedimientoAlmacenado',datos).then(resultado=>{
-    console.log(resultado);
-    console.log("--------------------------------------------------------------")
-}).catch(error=>{
-    console.log(`error en la ejecución del sp: ${error}`);
+sp.exec('StoredProcedureName', parameters).then((response) => {
+    // Handle response
+    console.log(response);
+}).catch((error) => {
+    console.log(`SP Error: ${error}`);
 })
 ```
 
 > Veamos un ejemplo completo del código para la ejecución con await:
 
 ```js
-var sqlsp = require('sqlstoreprocedure')
+const sqlsp = require('sqlstoreprocedure')
 
-async function Ejecutar(){
+async function main (){
+  const sp = new sqlsp('sa', '192.168.0.100', 'mydatabase', 'mysecurepassword');
+  const response = await sp.exec('StoredProcedure', parameters);
 
-  let sp = new sqlsp('sa', '192.168.0.100', 'mibasededatos', 'mipassword');
-
-  var datos = {
-      "Parametro" : "Valor",
-      "Parametro2" : 2,
-      "Parametro3" : true
-  };
-
-  var resultado = await sp.exec('ProcedimientoAlmacenado',datos);
-  console.log(resultado);
+  // Handle response
+  console.log(response);
 }
 
-Ejecutar();
+main();
 ```
