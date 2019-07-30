@@ -1,3 +1,8 @@
+![Tested with mocha](test/badge.svg)
+
+[![https://nodei.co/npm/sqlstoreprocedure.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/sqlstoreprocedure.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/sqlstoreprocedure)
+
+
 # SQLStoreProcedure
 
 Quick and easy MSSQL Stored Procedure execution using promises
@@ -64,3 +69,10 @@ async function main (){
 
 main();
 ```
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars2.githubusercontent.com/u/4575267?s=460&v=4" width="100px;"/><br /><sub><b>Juan Mora</b></sub>](https://github.com/raicerk)| [<img src="https://avatars0.githubusercontent.com/u/8430727?s=460&v=4" width="100px;"/><br /><sub><b>Agustin Gonzalez</b></sub>](https://github.com/agonzalezmurua) |
+| :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
