@@ -1,4 +1,4 @@
-![Tested with mocha](test/badge.svg)
+![Tested with mocha](https://github.com/raicerk/sqlstoreprocedure/raw/master/test/badge.svg?sanitize=true)
 
 [![https://nodei.co/npm/sqlstoreprocedure.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/sqlstoreprocedure.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/sqlstoreprocedure)
 
