@@ -43,8 +43,8 @@ const parameters = {
 In order to start oeprating we must first initialize the module:
 
 ```js
-const sqlsp = require('sqlstoreprocedure')
-const sp = new sqlsp('user', 'xxxx.xxxx.xxxx.xxxx', 'databasename', 'password');
+const SQLSP = require('sqlstoreprocedure')
+const sp = new SQLSP('userdb', 'IPServer(x.x.x.x)', 'databasename', 'password');
 
 sp.exec('StoredProcedureName', parameters).then((response) => {
     // Handle response
@@ -57,10 +57,20 @@ sp.exec('StoredProcedureName', parameters).then((response) => {
 > Example with await
 
 ```js
-const sqlsp = require('sqlstoreprocedure')
+const SQLSP = require('sqlstoreprocedure')
 
+// Normal version
 async function main (){
-  const sp = new sqlsp('sa', '192.168.0.100', 'mydatabase', 'mysecurepassword');
+  const sp = new SQLSP('userdb', 'IPServer(x.x.x.x)', 'mydatabase', 'mysecurepassword');
+  const response = await sp.exec('StoredProcedure', parameters);
+
+  // Handle response
+  console.log(response);
+}
+
+// Arrow Function Version
+let main = async () => {
+  const sp = new SQLSP('userdb', 'IPServer(x.x.x.x)', 'mydatabase', 'mysecurepassword');
   const response = await sp.exec('StoredProcedure', parameters);
 
   // Handle response
@@ -69,6 +79,22 @@ async function main (){
 
 main();
 ```
+
+> Example with typescript
+
+```ts
+import SQLSP from 'sqlstoreprocedure';
+
+let sp: any = new SQLSP('userdb', 'IPServer(x.x.x.x)', 'mydatabase', 'mysecurepassword')
+
+sp.exec('StoredProcedure', parameters).then(response => {
+    // Handle response
+  console.log(response);
+}).catch(err => {
+    console.log(err)
+})
+```
+
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->

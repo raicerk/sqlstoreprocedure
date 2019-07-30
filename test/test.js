@@ -5,7 +5,7 @@ describe("Test for SQLStoreProcedure lib", () => {
 
     it("Connection test", done => {
 
-        let sp = new SQLSP("sa", "127.0.0.1", "contactos", "R84857374r.")
+        let sp = new SQLSP("sa", "127.0.0.1", "contactos", "password.")
 
         sp.getConnectionStatus().then(estado => {
             estado.should.equal(true);
@@ -16,7 +16,7 @@ describe("Test for SQLStoreProcedure lib", () => {
 
     it("Execute store procedure Test", done => {
 
-        let sp = new SQLSP("sa", "127.0.0.1", "contactos", "R84857374r.")
+        let sp = new SQLSP("sa", "127.0.0.1", "contactos", "password.")
 
         sp.exec('spRec_contactos_ObtieneDatosPorEstado', { estado: true }).then(response => {
             response.recordset.map(item => {
