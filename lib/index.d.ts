@@ -18,7 +18,7 @@ class SQLSP {
     private connect(): Promise<ConnectionPool>;
 
     /** Executes a named stored procedure */
-    exec<T = any>(StoredProcedure: string, Parameters: string): Promise<IProcedureResult<T>>;
+    exec<T = any>(StoredProcedure: string, Parameters: Object): Promise<IProcedureResult<T>>;
 }
 
 export = SQLSP;
