@@ -1,10 +1,10 @@
 {
   "name": "sqlstoreprocedure",
-  "version": "1.0.4",
-  "description": "Libreria para nodejs que permite ejecutar procedimientos almacenados de SQL Server",
+  "version": "1.0.5",
+  "description": "Librery for nodejs that allows to execute store procedure for SQL Server",
   "main": "./lib/index",
   "scripts": {
-    "test": "node /test/index"
+    "test": "mocha ./test/test.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,8 @@
   "keywords": [
     "nodejs",
     "sqlserver",
-    "storeprocedure"
+    "storeprocedure",
+    "Typescript"
   ],
   "author": "Juan Mora, Agustin Gonzalez",
   "license": "MIT",
@@ -22,6 +23,10 @@
   },
   "homepage": "https://github.com/raicerk/sqlstoreprocedure#readme",
   "dependencies": {
-    "mssql": "^4.1.0"
+    "mssql": "^5.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "should": "^13.2.3"
   }
 }
